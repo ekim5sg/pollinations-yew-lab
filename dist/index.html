@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Pollinations.ai Image Lab (Yew)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Trunk-managed CSS -->
+    <link rel="stylesheet" href="/pollinations-yew-lab/index.css" integrity="sha384-yXVwR5WOQsrwPbOMEhtOL7LRJAm/65FC7gtlgMUtUU8qKJhu4NUGjGjgZ0e0Z6Ng"/>
+  <link rel="modulepreload" href="/pollinations-yew-lab/pollinations_yew_lab.js" crossorigin="anonymous" integrity="sha384-qrbMR1wJsilMd8fQXV/0PqjDXJGqpiy6HFuCome6MeRKGF8f671Q9S3w6hlH8K1R"><link rel="preload" href="/pollinations-yew-lab/pollinations_yew_lab_bg.wasm" crossorigin="anonymous" integrity="sha384-el1wWlP3xwMVyrhATxZYqOERBomA60bQcIbOApEEOEYwEvWa+NlsU/c0oaz53cHf" as="fetch" type="application/wasm"></head>
+  <body>
+    <div id="root"></div>
+
+    <!-- Trunk will inject the WASM + JS here -->
+  
+<script type="module">
+import init, * as bindings from '/pollinations-yew-lab/pollinations_yew_lab.js';
+const wasm = await init({ module_or_path: '/pollinations-yew-lab/pollinations_yew_lab_bg.wasm' });
+
+
+window.wasmBindings = bindings;
+
+
+dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
+
+</script></body>
+</html>
